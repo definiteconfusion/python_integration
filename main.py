@@ -1,4 +1,6 @@
 import numpy as np
+import matplotlib.pyplot as plt
+import math
 class Calc:
     def __init__(self, upper_bound, lower_bound, accuracy, equation) -> None:
         self.Z = upper_bound
@@ -16,6 +18,21 @@ class Calc:
     def Integrate(self):
         return sum([Calc.Area(self.fX, self.B, i) for i in np.arange(self.A, self.Z, self.B)])
     
+    def Graph(self):
+        x = np.arange(self.A, self.Z, self.B)
+        y = [eval(self.fX.replace('x', str(val))) for val in x]
+        plt.figure(figsize=(10, 6))
+        plt.plot(x, y, label=f'y = {self.fX}', color='blue')
+        plt.title('Sine Function with Limits and Shading')
+        plt.xlabel('x')
+        plt.ylabel('y')
+        plt.axhline(0, color='black',linewidth=0.5, ls='--')
+        plt.axvline(self.A, color='red', ls='--', label=f'x = {self.A} (Limit Start)')
+        plt.axvline(self.Z, color='red', ls='--', label=f'x = {self.Z} (Limit End)')
+        plt.axvline(self.Z, color='green', ls=' ', label=f'Area = {self.Integrate()}')
+        plt.grid()
+        plt.legend()
+        plt.show()
 
-c = Calc(12, 0, 0.01, "2**(-1*(x-5))")
-print(c.Integrate())
+c = Calc(2*math.pi, 0, 0.0001, "math.sin(x)+1")
+c.Graph()
