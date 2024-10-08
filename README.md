@@ -1,42 +1,52 @@
-# Python Binary Wrapper
+# Python Integration
 
-Simple Python script to allow for interoperability with low-level languages  
+## Description
 
-## Syntax
+This repository, `python_integration`, is a private project primarily written in Python (70.3%) with some components in Rust (29.7%). It aims to integrate various Python functionalities and tools with some Rust modules for enhanced performance and capabilities.
 
-### Python
+## Table of Contents
 
-```python
-# May want to change source file
-from main import Binary
+- Installation
+- Usage
+- Development
+- Contributing
+- License
+- Installation
+- To install the necessary - dependencies, run the following command:
 
-# `Binary` class to setup with executable
-Output = Binary(
-    './<path to binary subfile>',
-    exampleArg1,
-    exampleArg2,
-    exampleArg3
-).get()
-print(Output)
+```shell
+pip install -r requirements.txt
 ```
 
-### Rust
+Additionally, ensure you have Rust installed if you plan on working with the Rust components.
 
-```rust
-// Needed for argument collection
-let args: Vec<String> = env::args().collect();
-// use arguments as needed
-let exampleOutput: String = "Hello World"
-println!("{}", exampleOutput)
+## Usage
+
+To start the project, execute the main script:
+
+```shell
+python main.py
 ```
 
-### Terminal
+Refer to the specific documentation or code comments for detailed usage instructions.
 
-```bash
-# Commands
-cargo build
-python3 playground.py
+## Development
 
-# Output
-['Hello', 'World']
-```
+Python
+Main script: `main.py`
+Dependencies: Listed in `requirements.txt`
+Rust
+Ensure `cargo` is installed for Rust dependencies.
+Rust modules can be found under the `rust/` directory.
+
+## Contributing
+
+Fork the repository.
+Create a new branch (`git checkout -b feature-branch`)
+Commit your changes (`git commit -am 'Add new feature'`)
+Push to the branch (`git push origin feature-branch`)
+Create a new Pull Request
+
+## License
+
+This project is currently not licensed.
