@@ -1,5 +1,5 @@
 # This script is 26x slower than the native Python version
-
+# Although I'm sure its the `subprocess` lib not Rust
 import numpy as np
 from bound import *
 
